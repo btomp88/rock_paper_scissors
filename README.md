@@ -1,0 +1,1 @@
+The first version of the game was written completely in JavaScript. Later versions will incorporate HTML and CSS to make the game more interactive and fun to view. 

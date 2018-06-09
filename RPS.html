@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock, Paper, Scissors</title>
+</head>
+<body>
+<script>
+
+function computerPlay () {
+var compChoiceSelection = ['rock', 'paper', 'scissors'];
+var compChoice = compChoiceSelection[Math.floor(Math.random() * compChoiceSelection.length)]
+
+return compChoice;
+};
+//randomly returns either rock, paper, or scissors and this will be what the computer selects 
+
+function playRound (playerSelection, computerSelection) {
+ 	var computerSelection = computerSelection();
+	//runs the function that randomly selects rock, paper, or scissors and stores it in a variable which will serve as the computer's choice 
+    if (playerSelection === computerSelection) {
+		alert('Both you and the computer chose ' + playerSelection + ' - yall tie!');
+	} else if (playerSelection === 'rock' && computerSelection === 'scissors') {
+		playerScore++;
+		alert('Computer chose ' + computerSelection + ' - you win! ' + 'Your Score:  ' + playerScore + ' vs. ' + 'Computer Score: ' + computerScore);
+	} else if (playerSelection === 'rock' && computerSelection === 'paper') {
+		computerScore++;
+		alert('Computer chose ' + computerSelection + ' - you lose! ' + 'Your Score:  ' + playerScore + ' vs. ' + 'Computer Score: ' + computerScore);
+	} else if (playerSelection === 'paper' && computerSelection === 'scissors') {
+		computerScore++;
+		alert('Computer chose ' + computerSelection + ' - you lose! ' + 'Your Score:  ' + playerScore + ' vs. ' + 'Computer Score: ' + computerScore);
+	} else if (playerSelection === 'paper' && computerSelection === 'rock') {
+		playerScore++;
+		alert('Computer chose ' + computerSelection + ' - you win! ' + 'Your Score:  ' + playerScore + ' vs. ' + 'Computer Score: ' + computerScore);
+	} else if (playerSelection === 'scissors' && computerSelection === 'rock') {
+		computerScore++;
+		alert('Computer chose ' + computerSelection + ' - you lose! ' + 'Your Score:  ' + playerScore + ' vs. ' + 'Computer Score: ' + computerScore);
+	} else if (playerSelection === 'scissors' && computerSelection === 'paper') {
+		playerScore++;
+		alert('Computer chose ' + computerSelection + ' - you win! ' + 'Your Score:  ' + playerScore + ' vs. ' + 'Computer Score: ' + computerScore);
+	} else {
+		alert('Only choose rock, paper, or scissors!');
+	}
+};
+
+function game(playRound) {
+	var numberOfRounds = 4;
+	//sets the number of rounds that the player will play against the computer
+	for (let i = 0; i < numberOfRounds; i++) {
+		var playerSelection = prompt('Enter rock, paper, or scissors!').toLowerCase();
+		if (playerSelection == null) {
+			break;
+		} else {
+		playRound(playerSelection, computerPlay);
+		//runs the main game function; the first arguement is generated in above prompt and is the player selection; the second arguement is a callback function that will be run within the playRound function
+	}
+	alert('GAME OVER! Your score: ' + playerScore + ' vs. Computer score: ' + computerScore);
+	//after the loop, we shower the player their score and the computer's score
+};
+
+var playerScore = 0
+var computerScore = 0
+//global variables starting at 0, and are increased within the playRound function depending on whether the computer or the player wins the round 
+
+var openingMessage = confirm('Want to play rock, paper, scissors?') 
+	if (openingMessage === false) {
+		alert('Ah come on man!');
+	} else {
+		game(playRound);
+		//if player confirms they want to play, then the game function is run, with the playRound function passed into is an arguement 
+	};
+
+</script>
+</body>
+</html>
