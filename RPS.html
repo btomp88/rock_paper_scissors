@@ -51,7 +51,8 @@ function game(playRound) {
 			break;
 		} else {
 		playRound(playerSelection, computerPlay);
-		//runs the main game function; the first arguement is generated in above prompt and is the player selection; the second arguement is a callback function that will be run within the playRound function
+		//first arguement is the player selection received from the prompt within the for loop, the second arguement is the computerPlay function will randomly make a choice for the computer
+		}
 	}
 	alert('GAME OVER! Your score: ' + playerScore + ' vs. Computer score: ' + computerScore);
 	//after the loop, we shower the player their score and the computer's score
@@ -59,14 +60,14 @@ function game(playRound) {
 
 var playerScore = 0
 var computerScore = 0
-//global variables starting at 0, and are increased within the playRound function depending on whether the computer or the player wins the round 
+//global variables that track the score of the computera and player, both variables are updated in the playRound function
 
 var openingMessage = confirm('Want to play rock, paper, scissors?') 
 	if (openingMessage === false) {
 		alert('Ah come on man!');
 	} else {
 		game(playRound);
-		//if player confirms they want to play, then the game function is run, with the playRound function passed into is an arguement 
+		//main game function which takes the playRound function as an arguement
 	};
 
 </script>
